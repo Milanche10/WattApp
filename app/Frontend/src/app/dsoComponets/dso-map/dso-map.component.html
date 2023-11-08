@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-9 col-md-8 col-12">
+            <div class="row">
+                <div class="position-absolute top-0 start-0">
+                    <div id="map"></div> 
+                </div>
+                
+                    <app-weather id="weather2"></app-weather>
+              
+            </div>
+        </div>
+        
+            <div class="tabela" id="tabela">
+                <app-dso-prosumers-table (prosumerMapShowEvent)="showOnMap($event)"></app-dso-prosumers-table>
+            </div>
+       
+    </div>
+</div>
+
+<script src="https://cdn.openstreetmap.org/openlayers/OpenLayers.js"></script>
+
+
+
+

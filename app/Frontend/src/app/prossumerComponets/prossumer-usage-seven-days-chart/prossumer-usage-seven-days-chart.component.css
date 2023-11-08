@@ -1,0 +1,17 @@
+#chart {
+    width: 800px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  
+  #prossumerUsagePerDaysChart{
+    background-color: rgba(71, 79, 89, 0.2);
+    border: 1px solid rgba(71, 79, 89, 1);
+  }
+
+  @media (max-width: 767px) {
+      #chart{
+        display: block;
+        width: 100%;
+  }
+}

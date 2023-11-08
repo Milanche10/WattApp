@@ -1,0 +1,38 @@
+<div id="divWeatherMain">
+    <h2>Weather forecast</h2>
+    <div class="weatherWidgetRow">
+        <div *ngIf="isDay" class="weatherWidgetItem">
+            <i class="fas fa-3x fa-sun sun"></i>
+        </div>
+        <div *ngIf="!isDay" class="weatherWidgetItem">
+            <i class="fas fa-3x fa-moon moon"></i>
+        </div>
+        <div class="weatherWidgetItem cloudDiv">
+            <i class="fas fa-cloud fa-3x cloud"></i>
+        </div>
+    </div>
+
+    <br>
+    <div class="weatherWidgetRow">
+        <input type="text" [(ngModel)]="location" placeholder="Enter location">
+        <button class="search-button" (click)="onSearch()">Search</button>
+        <span class="cityName">{{WeatherData.city.name}}</span>
+    </div>
+    <br>
+    <div class="forecastRow">
+        <ng-container *ngFor="let forecast of WeatherData.list">
+            <div class="forecastItem">
+                <div class="date">{{forecast.forecastDate}}</div>
+                <div class="weatherIcon">
+                    <img [src]="'https://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png'" />
+                </div>
+                <div class="temperature">{{forecast.main.temp_celsius}}°C</div>
+                <div class="humidity">Humidity: {{forecast.main.humidity}}%</div>
+                <div class="wind">Wind: {{forecast.wind.speed | number:'1.0-0'}} km/h</div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+

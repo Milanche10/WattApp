@@ -1,0 +1,27 @@
+<div class="table-wrapper">
+  <table class="fl-table">
+      <thead>
+      <tr>
+          <th>DATE</th>
+          <th>USAGE</th>
+          <th>PRODUCED</th>
+      </tr>
+      </thead>
+      <tbody>
+        <!-- | paginate: { itemsPerPage: pageSizeRecordsSeven,currentPage: currentPageRecordsSeven,totalItems: totalRecordsSeven } -->
+        <ng-container *ngFor="let record of  this.arrayOFSums ; let i = index;">
+          <tr *ngIf="showAllRows || i < 3" >
+          <td>{{  record.day  | date: 'dd.MM.yyyy'}}</td>
+          <td>{{ record.sumOFUsage | number : '1.3-3' }}<span class="unit"> kWh</span></td>
+          <td>{{ record.sumOFProduced | number : '1.3-3'}}<span class="unit"> kWh</span></td>
+        </tr>
+      </ng-container>
+        </tbody>
+  </table>
+  <!--<ngx-pagination [collectionSize]="totalRecords" [(page)]="currentPage" [pageSize]="pageSize" (pageChange)="pageChanged($event)"></ngx-pagination>
+  <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChangeRecord($event)"></pagination-controls>-->
+  <button (click)="toggleShowAllRows()">
+    {{ showAllRows ? 'View less' : 'View all' }}
+  </button>
+</div>
+

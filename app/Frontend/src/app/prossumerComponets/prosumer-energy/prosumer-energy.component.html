@@ -1,0 +1,25 @@
+<div id="energy-info">
+
+    <div class="prosumer" id="prosumerHeader">
+        <div class="row container">
+        <div class="col-1 square"> <app-prosumer-device-usage-chart></app-prosumer-device-usage-chart></div>
+        <div class="col-1 square"><app-prosumer-device-production-chart></app-prosumer-device-production-chart></div>
+        <div class="col-1 square"><app-prosumer-highest-usage-device-chart></app-prosumer-highest-usage-device-chart></div>
+        <div class="col-1 square"><app-prosumer-highest-production-device-chart></app-prosumer-highest-production-device-chart></div>
+      </div>
+    
+      <div  class="prediction">
+        <div class="chart-container">
+          <app-prosumer-seven-days-chart></app-prosumer-seven-days-chart>
+        </div>
+        <div class="tableprediction">
+          <app-prossumer-prediction-seven-days-table></app-prossumer-prediction-seven-days-table>
+          <app-prossumer-record-seven-days-table></app-prossumer-record-seven-days-table>
+        </div>
+      </div>
+      <div class="tablehistory">
+        <app-prossumer-history-table></app-prossumer-history-table>
+      </div>
+</div>
+
+

@@ -1,0 +1,107 @@
+
+<div class="prosumer-details-main">
+
+    <div class="device-details">
+        <div class="home-link" routerLink="/prosummer/home">
+            <div class="back-icon"></div>
+            Device details
+        </div>
+        <div class="device-header">
+            <div class="device-name">
+                <div class="device-header-first-row">
+                    <div class="device-icon">
+                        <img *ngIf="this.device" [src]="getDeviceIconPath()">
+                    </div>
+        
+                    {{this.device?.name}} 
+                    <!-- <span class="separator"></span>  -->
+                    {{this.device?.manufacturer}}
+                </div>
+
+                <div class="location" *ngIf="this.device">
+                    <img src="../../../assets/icons/location.png" alt="">
+                    {{getDeviceAddress()}}
+                </div>
+    
+                <!-- <div class="device-type" [ngClass]="{'device-type-producer': this.device.type == 'Proizvodjac', 'device-type-consumer': this.device.type == 'Potrosac'}">
+                    {{this.device.type}}
+                </div> -->
+    
+                <div class="device-type" [ngClass]="{'device-type-producer': device?.type == 'Proizvodjac', 'device-type-consumer': device?.type == 'Potrosac'}">
+                        {{deviceTypeText}}
+                </div>
+                <div class="device-modal-status">
+                    <label class="toggle">
+                        <input type="checkbox" [checked]="this.device?.status" (click)="showChangeStatusPopup($event)">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+    
+                <div class="delete-device" (click)="showDeleteDevicePopup()">
+                    <img src="../../../assets/icons/trash.png" alt="">
+                </div>
+            </div>
+
+            <div class="energy-header">
+                <div class="energy-info-header">
+                    <img src="../../../assets/icons/energy_details.png" class="icon" alt="">
+                    <div class="energy-info-header-text">Energy {{energyTypeText}} overview</div> 
+                </div>
+            
+                <div class="energy-data">
+                    <div class="energy-single-data">
+                        <div class="energy-text">
+                            Current 
+                        </div>
+                        
+                        <div class="energy">
+                            <div class="energy-number"[ngClass]="{'device-type-producer': device?.type == 'Proizvodjac', 'device-type-consumer': device?.type == 'Potrosac'}">{{currentEnergy | number:'1.1-1'}}</div>
+                            <span class="energy-unit">W</span>
+                        </div>
+                    </div>
+            
+                    <div class="energy-single-data">
+                        <div class="energy-text">
+                            Today 
+                        </div>
+                        
+                        <div class="energy">
+                            <div class="energy-number"[ngClass]="{'device-type-producer': device?.type == 'Proizvodjac', 'device-type-consumer': device?.type == 'Potrosac'}">{{todayEnergy | number:'1.1-1'}}</div>
+                            <span class="energy-unit">kW/h</span>
+                        </div>
+                    </div>
+            
+                    <div class="energy-single-data" >
+                        <div class="energy-text">
+                            Last 7 days 
+                        </div>
+                        
+                        <div class="energy">
+                            <div class="energy-number"[ngClass]="{'device-type-producer': device?.type == 'Proizvodjac', 'device-type-consumer': device?.type == 'Potrosac'}">{{lastSevenDaysEnergy | number:'1.1-1'}}</div>
+                            <span class="energy-unit">kW/h</span>
+                        </div>
+                    </div>
+                    
+                    <div class="energy-single-data" >
+                        <div class="energy-text">
+                            This month 
+                        </div>
+                        
+                        <div class="energy">
+                            <div class="energy-number"[ngClass]="{'device-type-producer': device?.type == 'Proizvodjac', 'device-type-consumer': device?.type == 'Potrosac'}">{{thisMonthEnergy | number:'1.1-1'}}</div>
+                            <span class="energy-unit">kW/h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <app-prosumer-device-info *ngIf="this.device" [device]="this.device"></app-prosumer-device-info>
+        <app-prosumer-energy-info *ngIf="this.device" [device]="this.device"></app-prosumer-energy-info>
+
+        <app-popup *ngIf="popupVisible" (closePopup)="popupVisible = false;" (deviceDeleted)="navigateToHome()" [popupDetails]="popupDetails"></app-popup>
+    </div>
+    
+</div>

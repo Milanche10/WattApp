@@ -1,0 +1,287 @@
+#optionsDso {
+    display: flex;
+    justify-content: flex-end;
+}
+#table-dark{
+    color:#338C9A;
+    background-color: #232435;
+    height:30%;
+    width:50%;
+}
+#title{
+    color:wheat;
+    background-color: wheat;
+}
+#dsoHeader {
+    min-height: 100px;
+    color:#338C9A;
+}
+
+.blockUser {
+    color: aliceblue;
+}
+
+.clear-filter-icon {
+    padding: 0 6px;
+    background-color: #132c2e;
+    border-radius: 4px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.clear-filter-icon:hover {
+    background-color: #2f666b;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table-wrap {
+    padding-left: 60px;
+}
+
+.deshboard {
+    height: 100vh;
+    background-color: #338C9A;
+    color: #338C9A;
+}
+
+
+.btnDevices
+{
+    background-color: #2f666b;
+        columns: rgb(0, 0, 0);
+        border: 2px solid rgba(46, 69, 244, 0.318);
+        text-align: center;
+        padding: 5px 7px;
+        border-radius: 10px;
+        color: rgb(201, 201, 201);
+        text-shadow: #27282b;
+        margin-top: 7px;
+}
+.btnDetails {
+    background-color: #3D868D;
+    columns: rgb(0, 0, 0);
+    border: 2px solid rgba(46, 69, 244, 0.318);
+    text-align: center;
+    padding: 5px 7px;
+    border-radius: 10px;
+    color: rgb(201, 201, 201);
+    text-shadow: #27282b;
+    margin-top: 7px;
+
+}
+
+tbody {
+    background-color: #ddd;
+}
+
+th {
+    color: rgb(248, 248, 146);
+    font-style: normal;
+    font-size: medium;
+}
+
+.col-md-8 {
+    min-height: 650px;
+    max-height: 650px;
+}
+
+table th
+{
+    background-color: #2A4544;
+    color:whitesmoke;
+}
+table td {
+    font-size: 14px;
+    white-space: pre-line;
+    background-color: darkgray;
+    border-bottom: 1px solid #55806a;
+}
+
+
+
+.name {
+    color: #132c2e;
+    user-select: none;
+}
+.name:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+.name,
+.email,
+.num,
+.adress {
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.num {
+    text-align: right;
+    padding-right: 10px;
+}
+
+button{
+color:rgb(0, 0, 0);
+background-color: rgba(255, 216, 41, 0.794);
+}
+.delete,
+.block,
+.deleteBlock {
+
+
+    text-align: center;
+    padding: 5px 7px;
+    border-radius: 10px;
+    margin-top: 7px;
+}
+
+.delete {
+    border: 1px solid #620404;
+    background-color: #d0595931;
+    color: #620404;
+}
+
+.block {
+    border: 1px solid #efbd26;
+    background-color: rgba(229, 212, 20, 0.262);
+    color: rgb(201, 201, 201);
+}
+
+.devices {
+    background-color: rgb(100, 100, 143);
+    max-height: 500px;
+    max-width: 500px;
+}
+
+.blockUnblock {
+    border: 1px solid #b1ae00;
+    background-color: rgba(213, 206, 131, 0.262);
+    color: rgb(110, 101, 6);
+    text-align: center;
+    padding: 5px 7px;
+    border-radius: 10px;
+    margin-top: 7px;
+}
+
+.deleteBlock {
+    border: 1px solid #620404;
+    background-color: #a9a6a631;
+    color: #620404;
+}
+
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+}
+
+.map-frame {
+    border: 2px #338C9A;
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+}
+
+input {
+    background: none;
+    background-color: #9CA2A3;;
+    border-radius: 10px;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 15px;
+    border: 2px solid #284444;
+    padding-left: 15px;
+    box-shadow: 3px 3px 3px rgba(129, 129, 129, 0.143);
+    color: #000000;
+}
+
+.page-item {
+    user-select: none;
+}
+
+.page-item a.active {
+    background-color: #b5b5b5dc;
+}
+
+.form-group input {
+    padding-left: 35px;
+}
+
+.fa{
+    color: #9CA2A3;
+}
+
+.city-select select,
+.county-select select {
+    margin-right: 15px;
+    padding-left: 15px;
+    width: 250px;
+    height: 30px;
+    padding: 5px;
+    background-color: #9CA2A3;
+    color: #27282b;
+    border: 2px solid #3a3a80ce;
+    border-radius: 10px;
+}
+
+.parent {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-bottom: 20px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.Search {
+    width: 25%;
+    float: left;
+    right:90%;
+
+    margin-left: 60px;
+
+}
+
+.select {
+    width: 45%;
+    /* float: right; */
+    margin-right: -300px;
+    text-align: right;
+}
+
+.page-ratio {
+    color: aliceblue;
+    padding: 10px;
+    margin-right: 12px;
+}
+
+.county-select,
+.city-select {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 48px;
+    position: relative;
+    top: -10px
+}
+.bg-danger {
+    background-color: red;
+    color: red;
+}
+
+.blockUser {
+    /* Define styles for blockUser class */
+    background-color: red;
+}
+.bg-danger.blockUser {
+    /* CSS styles for elements with both bg-danger and blockUser classes */
+    background-color: red;
+}

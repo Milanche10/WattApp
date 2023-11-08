@@ -1,0 +1,63 @@
+
+<div class="row">
+      <form style="margin-top: 50px;" [formGroup]="createProsummer" (ngSubmit)="submit()">
+        <h2 style="color: #99daff; margin-top: 50px; margin-bottom: 40px; display: flex; align-items: flex-end;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+            <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+          </svg>
+          <span style="margin-left: 10px;">Add New Prosumer</span>
+        </h2>
+        <div class="form-group name">
+          <div class="input-container">
+            <label>First Name</label>
+            <input type="text" placeholder="Enter prosumer's first name" name="" class="form-control" required="" formControlName="firstName">
+          </div>
+          <div class="input-container">
+            <label>Last Name</label>
+            <input type="text" placeholder="Enter prosumer's last name" class="form-control" required="" formControlName="lastName">
+          </div>
+        </div>
+        <div class="form-group email">
+          <label>Email</label>
+          <input type="text" placeholder="Enter prosumer's email" class="form-control" required="" formControlName="email">
+        </div><br>
+        <div class="form-group estate-container">
+          <label class="choose_label">Choose prosumer's estate</label>
+          <div class="estate-radio-buttons">
+            <input type="radio" name="estate" formControlName="estate" value="Kuca" id="house-radio">
+            <label for="house-radio" class="estate-radio">House</label>
+            <input type="radio" name="estate" formControlName="estate" value="Apartman" id="building-radio">
+            <label for="building-radio" class="estate-radio">Apartment</label>
+            <input type="radio" name="estate" formControlName="estate" value="Vikendica" id="vacation-house-radio">
+            <label for="vacation-house-radio" class="estate-radio">Cottage</label>
+          </div>
+        </div> <br>
+        <div class="form-group address">
+          <label>Address</label>
+          <input type="text" class="form-control" placeholder="Enter prosumer's address" [ngModelOptions]="{standalone: true}" [(ngModel)]="address">
+          <div class="mapbutton" (click)="geocodeAddress()">
+            <svg xmlns="http://www.w3.org/2000/svg" color="white" width="16" height="18" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>
+            <span>Show on map</span>
+          </div>
+        </div><br>
+
+        <div class="map">
+
+
+        <div  id="map-prosumer"></div>
+        <br><br> </div>
+
+        <button type="submit" class="submit" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg> Add Prosumer
+
+            </button>
+          </form>
+
+    </div>

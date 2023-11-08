@@ -1,0 +1,24 @@
+.production {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 260px;
+}
+
+p {
+  color: white;
+  margin-top: 15%;
+  font-size: 2.5em;
+}
+
+h3 {
+margin-top: 5%;
+color: #99daff;
+}
+
+span {
+  display:inline;
+  margin-left: 10%;
+}

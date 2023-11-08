@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm navbar-dark  prosumer-navbar">
+    <div class="container-fluid">
+      <div class="logo">
+        <img src="../../../assets/logo1.png" alt="logo" width="80px" height="60px">
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" (click)="toPage('home')" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+              <img src="../../../assets/icons/all_devices.png" class="nav-img">
+              <div class="tablet-visible"></div>
+              Devices
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="toPage('energyInfo')" data-bs-toggle="collapse" data-bs-target="#mynavbar" id="energy-info-navlink">
+              <img src="../../../assets/icons/energy.png" class="nav-img">
+              <div class="tablet-visible"></div>
+              Energy info
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link profile" (click)="toPage('profile')" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+              <img src="../../../assets/icons/profile-big.png"> 
+              <div class="tablet-visible"></div>
+              {{ this.glob.user?.firstName + " " + this.glob.user?.lastName!}}
+            </a>
+        </li>
+        </ul>
+        <div class="d-flex">
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link logout" (click)="logout()">
+                  <img src="../../../assets/icons/logout.png" class="nav-img">
+                  <div class="tablet-visible"></div>
+                  Logout
+                </a>
+              </li>
+            </ul>
+      </div>
+      </div>
+    </div>
+  </nav>

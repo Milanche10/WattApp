@@ -1,0 +1,56 @@
+#modal-content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(1fr, 3);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#modal-title {
+    font-size: 22px;
+}
+
+#modal-footer {
+    justify-self: right;
+    align-self: center;
+}
+
+#modal-close-button {
+    background-color: #ce0909;
+}
+
+.closePart {
+    display: flex;
+    justify-content: flex-end;
+ 
+}
+.closeButton {
+   
+    color: rgb(227, 227, 227);
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-right: 15px;
+    border: none;
+    background: none;
+    
+}
+
+.btn-close {
+    font-size: 25px;
+}
+
+
+h1{
+  
+    color: rgb(227, 227, 227);
+    margin-top:15px;
+    margin-left: 15px;
+ 
+}
+
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+

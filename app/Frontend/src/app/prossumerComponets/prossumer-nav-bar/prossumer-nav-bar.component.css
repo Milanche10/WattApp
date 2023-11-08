@@ -1,0 +1,138 @@
+
+.prosumer-navbar {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+a {
+    cursor: pointer;
+    /* color: #82b2f6; */
+    /* font-size: 19px; */
+    color: var(--navbar-color)
+}
+
+a:hover {
+    color: var(--navbar-color-hover)
+}
+
+.profile {
+    /* color:#7790D9;  */
+    margin-right: 12px;
+}
+
+.nav-item {
+    border-radius: 6px;
+    margin-left: 16px;
+    padding: 0px 10px;
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 40%);
+    /* border: 1px solid #82b2f6; */
+}
+
+/* .profile:hover {
+    color: #587adf;
+} */
+
+#energy-info-navlink, .profile  {
+    position: relative;
+    top: 2px;
+}
+
+.nav-img {
+    margin-right: 5px; 
+    width: 24px;
+}
+
+.profile img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.tablet-visible {
+    display: none;
+}
+
+.navbar {
+    background-color: var(--navbar-background);
+    border-bottom: 1px solid var(--navbar-border);
+}
+
+#mynavbar {
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .tablet-visible {
+        display: block;
+    }
+
+    a {
+        text-align: center;
+    }
+
+    .nav-img, .profile  {
+        margin: 0;
+    }
+
+    #energy-info-navlink, .profile  {
+        position: relative;
+        top: 8px;
+    }
+}
+
+.me-auto {
+    margin: auto;
+}
+
+.logo {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 576px) {
+    .me-auto {
+        width: 100%;
+        padding: 0 3%;
+    }
+
+    .logout {
+        background: none;
+    }
+
+    .nav-img, .profile img {
+        margin-right: 20px;
+    }
+
+    .nav-item {
+        margin-left: 5px;
+        padding: 0px 10px;
+        border-radius: 6px;
+        margin-bottom: 6px;
+        border: none;
+    }
+
+    a {
+        text-align: left;
+    }
+
+    .tablet-visible {
+        display: none;
+    }
+
+    .nav-img, .profile {
+        margin-bottom: 5px;
+    }
+
+    #mynavbar {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+
+    #energy-info-navlink, .profile {
+        position: relative;
+        top: 0px;
+    }
+
+}

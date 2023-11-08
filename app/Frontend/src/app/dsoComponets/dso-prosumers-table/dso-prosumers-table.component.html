@@ -1,0 +1,159 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+
+
+<div class="row" id="dsoHeader">
+
+    <div class="col-sm-6"></div>
+    <div class="col-sm-8">
+     <!--   <div id="optionsDso">
+            <button class="btn btn-primary" (click)="creatProsummer()">Create</button>
+        </div>-->
+        <div class="col-sm-2"></div>
+    </div>
+    <div class="row">
+
+        <div class="col-1"></div>
+        <div style="margin-top: 60px; margin-left: 60px; color: aliceblue; font-size: 32px; margin-bottom: 0px;">
+            Prosumers - <span>{{this.all_prosummers.length}}</span>
+        </div>
+        <div class="parent">
+            <div class="Search">
+                <div class="form-group position-relative">
+                    <input class="form-control py-3 pl-5 pr-3" type="text" [(ngModel)]="searchTerm" (input)="search()"
+                        placeholder="Search by name or email">
+                    <i class="fas fa-search position-absolute text-muted"
+                        style="top: 50%; left: 16px; transform: translateY(-50%);"></i>
+                </div>
+            </div>
+            <div class="select">
+                <span class="city-select">
+                    <select style="width: 200px;" [(ngModel)]="selectedCity" (change)="onCityChange()">
+                        <option value="" disabled selected>Select City</option>
+                        <option *ngFor="let city of uniqueCities" [value]="city">{{city}}</option>
+                    </select>
+                    <span class="clear-filter-icon" (click)="clearFilterCity()"><i class="fa fa-times"></i></span>
+                  </span>
+                <span class="county-select">
+                    <select style="width: 200px;" [(ngModel)]="selectedCounty" (change)="onCountyChange()">
+                        <option value="" disabled selected>Select County</option>
+                        <option *ngFor="let county of uniqueCounty" [value]="county">{{county}}</option>
+                    </select>
+                    <span class="clear-filter-icon" (click)="clearFilterCounty()"><i class="fa fa-times"></i></span>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-9 table-wrap">
+            <table class="table table-striped table-hover">
+                <thead class="bg-light">
+                    <tr id="table-dark"  >
+                        
+                        <th class="title">Name</th>
+                        <th class="title">Email</th>
+                        <th class="title">Adress</th>
+                        <th class="title">Number of Devices</th>
+                        <th class="title">Details</th>
+                        <th class="title">Options</th>
+                    </tr>
+                </thead>
+                
+
+                <tbody>
+
+                    <tr *ngFor="let prosummer of  this.prosummers"
+                        [ngClass]="{'bg-danger blockUser': prosummer.isBlock == 1, 'red-row': prosummer.isBlock == 1}
+                        "
+                        
+                        >
+                        <td (click)="showOnMap(prosummer)">
+                            <div class="d-flex align-items-center name">
+                                {{prosummer.firstName}} {{prosummer.lastName}}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center email">
+                                {{prosummer.email}}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center adress">
+                                {{prosummer.adress}}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="num">
+                                {{prosummer.numberOfDevices}}
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button (click)="showDevices(prosummer.devices,prosummer)" class="btnDevices btn-sm"
+                                [disabled]="prosummer.isBlock==1">Devices</button>
+                        <!--      <button (click)="devicesDetailModalVisible = true" class="btnDevices btn-sm"
+                                    [disabled]="prosummer.isBlock==1">Devices</button> -->
+                                <button (click)="extendMore(prosummer)" class="btnDetails btn-sm"
+                                    [disabled]="prosummer.isBlock==1">User details</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
+                                <button class="blockUnblock"
+                                    [ngClass]="prosummer.isBlock == 1?'btn btn-primary ':' btn-sm btn block' "
+                                    (click)="blockUnblock(prosummer.id, prosummer.isBlock)">
+                                    {{prosummer.isBlock?'Unblock':'Block'}}
+                                </button>
+                                <button
+                                    [ngClass]="prosummer.isBlock == 1?'btn btn-primary btn-sm deleteBlock': ' btn-sm btn  delete'"
+                                    (click)="showDeletePopup(prosummer)"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-trash3"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                                    </svg></button>
+                            </div>
+                        </td>
+                        <app-dso-prosumers-devices *ngIf="showDevicePopup" [devices]="userDevices" [prosumerName]="prosumerN" (closed)="showDevicePopup = false"></app-dso-prosumers-devices>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav aria-label="Page navigation example" id="optionsDso">
+                <span class="page-ratio">{{this.currentPage}} / {{this.global.DsoDashboardNumberOfPages.length}}</span>
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Previous" (click)="LoadPage(this.currentPage!-1)">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"
+                        *ngFor='let item of this.global.DsoDashboardNumberOfPages.slice(0, 2); let i = index'
+                        (click)="LoadPage(item)">
+                        <a class="page-link" [ngClass]="{'active': item === currentPage}">{{item}}</a>
+                    </li>
+                    <li class="page-item" (click)="LoadPage(this.global.DsoDashboardNumberOfPages[ind])">
+                        <a class="page-link"
+                            [ngClass]="{'active': this.global.DsoDashboardNumberOfPages[ind] === currentPage}">{{this.global.DsoDashboardNumberOfPages[ind]}}</a>
+                    </li>
+                    <!--   <li class="page-item-2" >
+                <a class="page-link" >...</a>
+              </li>
+              <li class="page-item" *ngFor='let item of this.global.DsoDashboardNumberOfPages.slice().reverse().slice(0, 3).reverse(); let i = index' (click)="LoadPage(item)">
+                <a class="page-link" [ngClass]="{'active': item === currentPage}">{{item}}</a>
+              </li> -->
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Next" (click)="LoadPage(this.currentPage!+1)">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <app-popup *ngIf="popupVisible" [popupDetails]="popupDetails" (prosummerDeleted)="LoadPage(this.currentPage)" (closePopup)="popupVisible=false"> </app-popup>
+</div>

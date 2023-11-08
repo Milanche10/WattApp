@@ -1,0 +1,11 @@
+
+<div class="prossumer-single-data row flex-wrap">
+    <div class="prossumer-single-data-inner col">
+        <div class="row">
+            <div class="col-md-5 prossumer-data-label">{{ getLabel() }}</div>
+            <div class="col-md-7 prossumer-data-data">
+                <input type="text" [value]="getData()" (keyup)="onChangeValue($event)">
+            </div>
+        </div>
+    </div>
+</div>

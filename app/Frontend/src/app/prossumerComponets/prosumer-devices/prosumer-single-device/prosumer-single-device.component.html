@@ -1,0 +1,56 @@
+
+<div class="device">
+
+    <div class="device-data" [routerLink]="['/prosummer/device']" [queryParams]="{id: device.id}">
+
+        <div class="device-header">
+            <div class="device-icon">
+                <img [src]="getDeviceIconPath()" alt="">
+            </div>
+            <div class="device-name" [ngClass]="{'device-producer': this.device.type == 'Proizvodjac', 'device-consumer': this.device.type == 'Potrosac'}">
+                {{ this.device.name }}
+                <span class="device-manufacturer">{{device.manufacturer}}</span>
+            </div> 
+    
+            <span class="device-energy" *ngIf="device.status">
+                <span class="separator">·</span> 
+                <!-- <span class="device-energy-text" [textContent]="getDeviceTypeText()"> </span> -->
+                
+                <span class="device-current-energy">{{currentEnergy | number:'1.1-1' }}</span>
+                <!-- <span class="device-tick">'</span> -->
+                <span class="device-energy-unit">W</span>
+            </span>
+        </div>
+        
+        <!-- <span class="separator"></span>   -->
+
+        <div class="device-location">
+            <img src="../../../../assets/icons/location.png">
+            {{getDeviceAddress()}}
+        </div>
+
+        <div class="device-description">{{this.device.description}}</div>
+    </div>
+
+    <div class="device-modal-status">
+        <label class="toggle">
+            <input type="checkbox" [checked]="this.device.status" (click)="showChangeStatusPopup($event)">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+
+    <div class="dots" (click)="toggleMenu($event)">
+        <div class="dots-inner"></div>
+        <div class="menu" [ngStyle]="{'display': showMenu ? 'block' : 'none'}">
+            <ul>
+                <li [routerLink]="['/prosummer/device']" [queryParams]="{id: device.id}"> <img src="../../../../assets/icons/device_details.png" alt=""> Device details</li>
+                <li (click)="showChangeStatusPopup($event)"> <img src="../../../../assets/icons/power_device.png" alt=""> Turn {{getDeviceChangeStatusText()}} device</li>
+                <!-- <li> <img src="../../../../assets/icons/dso_managing.jpg" alt=""> DSO privileges </li> -->
+                <li (click)="showDeleteDevicePopupDetails()"> <img src="../../../../assets/icons/trash_can.png" alt=""> Delete device</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- <hr class="device-border"> -->
+</div>

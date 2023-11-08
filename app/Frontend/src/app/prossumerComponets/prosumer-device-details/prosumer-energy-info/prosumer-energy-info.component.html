@@ -1,0 +1,128 @@
+<div class="energy-info">
+
+    <div class="prediction-history-header">
+        <div class="prediction-history-header-text">Choose {{energyTypeText?.toLowerCase()}} prediction or history</div>
+
+        <div class="navbar-container" #navbarContainer>
+            <div class="navbar-link" (click)="showEnergyPredictions()" [ngClass]="{'navbar-link-selected': isEnergyPredictionsSelected}">
+                <img src="../../../../assets/icons/energy_prediction.png">
+                <span class="navbar-link-text">Prediction</span>
+            </div>
+            <div class="navbar-link" (click)="showEnergyHistory()" [ngClass]="{'navbar-link-selected': isEnergyHistorySelected}">
+                <img src="../../../../assets/icons/energy_history.png">
+                <span class="navbar-link-text">History</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- <div class="energy-predictions-header">
+        {{energyTypeText}} predictions
+    </div> -->
+
+    <div *ngIf="isEnergyPredictionsSelected" class="predictions">
+        <div class="prediction-chart">
+            <div class="energy-prediction-line-chart energy-prediction">
+                <div class="energy-prediction-title">Energy {{energyTypeText?.toLowerCase()}} prediction per day in 7 days before and next 7 days</div>
+                <canvas id="energy-days-prediction-line"></canvas>
+            </div>
+        </div>
+         
+        
+        <div class="energy-predictions">
+            <div class="energy-prediction-table">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th *ngFor="let prediction of predictionData">{{getPredictionDate(prediction)}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: orange !important;">Prediction (kW/h)</td>
+                            <td class="table-number prediction-td" *ngFor="let prediction of predictionData">{{prediction.energy | number:'1.1-1'}}</td>
+                        </tr>
+                        <tr>
+                            <td [ngClass]="{'energy-consumer-color': this.device.type == 'Potrosac', 'energy-producer-color': this.device.type != 'Potrosac'}">Consumption (kW/h)</td>
+                            <td class="table-number" *ngFor="let record of historyData">{{record.energy | number:'1.1-1'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> 
+
+    <div *ngIf="isEnergyHistorySelected && !doesExistHistoryData" class="no-history-data">
+        This device still doesn't have {{energyTypeText?.toLowerCase()}} history.
+    </div>
+
+    <div class="energy-history" *ngIf="isEnergyHistorySelected && doesExistHistoryData">
+        <div class="navbar-container-history">
+            <!-- <div class="navbar-link-history" (click)="changeHistoryType(HistoryType.YEARS)" [ngClass]="{'navbar-link-history-selected': selectedHistoryType === HistoryType.YEARS}">
+                <span class="navbar-link-history-text">Per years</span>
+            </div> -->
+            <div class="navbar-link-history" (click)="changeHistoryType(HistoryType.HOURS)" [ngClass]="{'navbar-link-history-selected': selectedHistoryType === HistoryType.HOURS}">
+                <span class="navbar-link-history-text">Per hours</span>
+            </div>
+            <div class="navbar-link-history" (click)="changeHistoryType(HistoryType.DAYS)" [ngClass]="{'navbar-link-history-selected': selectedHistoryType === HistoryType.DAYS}">
+                <span class="navbar-link-history-text">Per days</span>
+            </div>
+            <div class="navbar-link-history" (click)="changeHistoryType(HistoryType.MONTHS)" [ngClass]="{'navbar-link-history-selected': selectedHistoryType === HistoryType.MONTHS}">
+                <span class="navbar-link-history-text">Per months</span>
+            </div>
+        </div>
+
+        <div class="energy-history-data">
+            <div class="sliders-and-chart" *ngIf="historyDataLoaded">
+                <div class="sliders">
+                    <div class="slider">
+                        <div class="slider-title">Year: <span class="slider-title-data">{{yearLabels[this.selectedYearHistory]}}</span></div>
+                        <ngx-slider [(ngModel)]="selectedYearHistory" (ngModelChange)="loadMonthOptions()" [options]="yearOptions"></ngx-slider>
+                        <!-- <p>Selected month: {{ getMonthLabel(selectedMonthHistory) }}</p> -->
+                    </div>
+            
+                    <div class="slider" [hidden]="selectedHistoryType === HistoryType.MONTHS">
+                        <div class="slider-title">Month: <span class="slider-title-data">{{monthLabels[selectedMonthHistory]}}</span></div>
+                        <ngx-slider [(ngModel)]="selectedMonthHistory" (ngModelChange)="loadDayOptions()"  [options]="monthOptions"></ngx-slider>
+                        <!-- <p>Selected month: {{ getMonthLabel(selectedMonthHistory) }}</p> -->
+                    </div>
+            
+                    <div class="slider" [hidden]="!(selectedHistoryType === HistoryType.HOURS)">
+                        <div class="slider-title">Day: <span class="slider-title-data">{{this.selectedDayHistory + 1}}</span></div>
+                        <ngx-slider [(ngModel)]="selectedDayHistory" (ngModelChange)="loadHistoryChartData()" [options]="dayOptions"></ngx-slider>
+                        <!-- <p>Selected month: {{ getMonthLabel(selectedMonthHistory) }}</p> -->
+                    </div>
+                </div>
+                <div class="energy-history-chart">
+                    <div class="energy-history-chart-inner">
+                        <div class="energy-history-title"> {{getHistoryChartTitle()}}</div>
+                        <canvas id="energy-history-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="energy-history-table">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">{{getHistoryTableHeading()}}</th>
+                            <th scope="col" class="table-number-heading">{{energyTypeText}} <div class="mobile-visible"></div> (kW / h)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hcd of historyChartData">
+                            <td>{{hcd.date}}</td>
+                            <td class="table-number">{{hcd.energy | number:'1.1-1'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="total-energy">
+                    <span>Total {{energyTypeText?.toLowerCase()}} </span>
+                    <span class="table-number">{{ getHistoryDataSum() | number:'1.1-1'}}</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="overlay">
+    <div class="container center-element">
+        <div class="row">
+            <div class="col-xl-4 col-md-3"></div>
+            <div class="col-xl-4 col-md-6 add-device-body">
+                <span class="add-device-close" (click)="closeModal.emit()">&#x2715;</span>
+                <h2 class="add-device-header">
+                    Add new device
+                    <hr>
+                </h2>
+
+                <!-- <hr> -->
+
+                <form class="add-device-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">  
+
+                    
+                    <div class="address">
+                        <label class="label-block">Location</label>
+                        <div class="address-text-heading">
+                            <img src="../../../../../../assets/icons/location.png" class="address-icon">
+                            <span class="address-text">{{selectedLocation?.address}}</span>
+                        </div>
+                    </div>
+
+                    <div class="name">
+                        <label class="label-block">Device</label>
+                        <div (click)="toggleProsumerOptions()" class="selected-option">
+                            <span class="selected-option-text">
+                                <img *ngIf="selectedProsumer" [src]="getDeviceIconPath(selectedProsumer.device)" class="icon" alt="">
+                                {{ getSelectedProsumerOptionText() }}
+                            </span>
+                            <span class="arrow-icon" [ngClass]="{'arrow-icon-opened': showProsumerOptions}"></span>
+                        </div>
+                        <div class="options" *ngIf="showProsumerOptions">
+                            <div class="option-group">
+                                <div class="option-label">Producers</div>
+                                <div class="single-option" [ngClass]="{'selected-option-from-list': producer.selected}" *ngFor="let producer of producerOptions" (click)="selectProsumerOption(producer)">
+                                    <span class="single-option-text">
+                                        <img [src]="getDeviceIconPath(producer.device)" class="icon" alt="">
+                                        {{ producer.device}}
+                                    </span>
+                                    <span *ngIf="producer.selected" class="check-icon">&#10003;</span>
+                                </div>
+                            </div>
+                            <div class="option-group">
+                                <div class="option-label">Consumers</div>
+                                <div class="single-option" [ngClass]="{'selected-option-from-list': consumer.selected}" *ngFor="let consumer of consumerOptions" (click)="selectProsumerOption(consumer)">
+                                    <span class="single-option-text">
+                                        <img [src]="getDeviceIconPath(consumer.device)" class="icon" alt="">
+                                        {{ consumer.device}}
+                                    </span>
+                                    <span *ngIf="consumer.selected" class="check-icon">&#10003;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="add-device-description">
+                        <label for="add-device-description" class="label-block">Description</label>
+                        <textarea id="add-device-description" formControlName="description" placeholder="Enter description of device. This should be something that gives little more info of device." rows="4"></textarea>
+                    </div>
+                    <div class="add-device-button">
+                        <button type="submit">Add device</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xl-4 col-md-3"></div>
+        </div>
+    </div>
+</div>

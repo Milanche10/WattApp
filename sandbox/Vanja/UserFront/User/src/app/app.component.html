@@ -1,0 +1,25 @@
+<div class="box">
+<div class="naslov">
+  <h1 style="font-style: italic; color: rgb(53, 48, 48); margin-left: 10px; text-align: center;">User list</h1>
+</div>
+  <button (click)="initNewUser()" style="max-height: 25px; margin-left: 10px; background-color: rgb(156, 156, 196);">Create New User</button>
+<table class="tabela">
+  <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Place</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.place}}</td>
+    <td><button (click)="editUser(user)" style=" background-color: rgb(156, 156, 196); width: 50px;">Edit</button></td>
+  </tr>
+  </tbody>
+</table>
+<div class="box2">
+  <app-edit-user [user]="userToEdit" (usersUpdated)="updateUserList($event)"></app-edit-user>
+</div>
+</div>

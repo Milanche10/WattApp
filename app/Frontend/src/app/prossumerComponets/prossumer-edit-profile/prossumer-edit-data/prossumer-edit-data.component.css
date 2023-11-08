@@ -1,0 +1,23 @@
+
+
+
+.button-edit-data-save {
+    border: none;
+    background-color: #64b7f2;
+    color:rgb(20, 20, 20);
+    padding: 6px;
+    transition: 0.15s;
+    border-radius: 5px;
+}
+
+.button-edit-data-save:hover {
+    background-color: #6176fd;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+    .button-edit-data-save {
+        font-size: medium;
+    }
+}

@@ -1,0 +1,141 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.center-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.popup-body {
+    position: relative;
+    color: rgb(227, 227, 227);
+    background-color: #23242a;
+    /* 2a2f3b */
+    border-radius: 6px;
+    padding: 16px 0px 0px 0px;
+    box-shadow: 2px 2px rgb(0 0 0 / 10%);
+    /* border: 1px solid rgb(113, 113, 113); */
+    font-size: 18px;
+    margin: auto;
+    width: 650px;
+    height: 470px;
+}
+
+.closePart {
+  display: flex;
+  justify-content: flex-end;
+
+}
+.closeButton {
+ 
+  color: rgb(227, 227, 227);
+  border-radius: 10px;
+  right: 6px;
+  top: 1px;
+  border: none;
+  background: none;
+  position: absolute;
+}
+
+.closePart {
+  display: flex;
+  justify-content: flex-end;
+
+}
+.closeButton {
+ 
+  color: rgb(227, 227, 227);
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-right: 15px;
+  border: none;
+  background: none;
+  
+}
+
+.device{
+    height: 30vh;
+    background: #232435;
+ }
+ 
+ 
+ *{
+    font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .container{
+   background: linear-gradient(#373942, #6e79a1f4);
+   height: 100%;
+   width: 100%;
+   position: relative;
+ }
+ .card p{
+  margin-left: 10px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.card{
+  position:relative;
+  display: flex;
+  flex-direction: column; 
+  border-radius: 10px;
+  height: 370px;
+  width: 620px;
+  box-shadow: 10px 10px 10px rgba(103, 103, 103, 0.4);
+  overflow-y:scroll;
+  scrollbar-width: normal;
+  background-color: #232435;
+  color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.popup-title {
+  color: rgb(227, 227, 227);
+  margin-top: 15px;
+  margin-left: 15px;
+  font-size: 22px;
+}
+
+.Access-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding-top: 5px; 
+  color: #b0bbe4f4;
+}
+
+.name {
+  font-weight: bold;
+  color: #99daff;
+}

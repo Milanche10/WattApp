@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #0f0f0f !important;}
+
+:root {
+    --back-color: #373942;
+    --third-grey: #40414D;
+    --tamno-plava: #7790D9;
+    --producer-color: #51d89b;
+    --consumer-color: #5476dc;
+    --storage-color: #fd8524;
+    --navbar-background: rgb(19, 19, 19);
+    --navbar-border: rgb(34, 34, 34);
+    --navbar-color: rgb(204, 211, 217);
+    --navbar-color-hover: rgb(113, 116, 120);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,27 @@
+<div class="table-wrapper">
+  <table class="fl-table">
+      <thead>
+      <tr>
+          <th>DATE</th>
+          <th>USAGE</th>
+          <th>PRODUCED</th>
+      </tr>
+      </thead>
+      <tbody>
+        <!-- | paginate: { itemsPerPage: pageSizePredictionSeven, currentPage: currentPagePredictionSeven, totalItems: totalPredictionsSeven }">-->
+        <ng-container *ngFor="let predictions of  this.arrayOFSums; let i = index;">
+        <tr *ngIf="showAllRows || i < 3" >
+          <td>{{ predictions.day | date: 'dd.MM.yyyy.' }}</td>
+          <td>{{ predictions.sumOFUsage | number : '1.3-3'}}<span class="unit"> kWh</span></td>
+          <td>{{ predictions.sumOFProduced | number : '1.3-3'}}<span class="unit"> kWh</span></td>
+        </tr>
+      </ng-container>
+      <tbody>
+  </table>
+  <button (click)="toggleShowAllRows()">
+    {{ showAllRows ? 'View less' : 'View all' }}
+  </button>
+  <!--<ngx-pagination [collectionSize]="totalRecords" [(page)]="currentPage" [pageSize]="pageSize" (pageChange)="pageChanged($event)"></ngx-pagination>
+  <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChangePrediction(2,$event)"></pagination-controls>-->
+</div>
+

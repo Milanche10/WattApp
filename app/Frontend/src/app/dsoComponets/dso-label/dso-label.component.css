@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+
+.container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:26px;
+  font-family:'Roboto';
+  height:100vh;
+}
+
+ #flip  {
+  padding:10px 10px;
+  background:gray;
+  color:white;
+  position:fixed;
+  top:48%;
+  margin-left:130px;
+  height:40px;
+  over-flow:hidden;
+}
+#flip > p:first-child {
+ animation: show 3s linear infinite;
+}
+
+
+
+@keyframes show {
+  0% {margin-top:30px;}
+  5% {margin-top:30px;}
+  20% {margin-top:-8px}
+  25% {margin-top:-8px;}
+  40% {margin-top:-60px;}
+  45% {margin-top:-60px;}
+  60% {margin-top:-120px;}
+  65% {margin-top:-120px;}
+  95% {margin-top:-160px;}
+  100% {margin-top:-160px;}
+}

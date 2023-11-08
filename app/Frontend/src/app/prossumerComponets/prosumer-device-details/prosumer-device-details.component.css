@@ -1,0 +1,414 @@
+
+* {
+    color: rgb(172, 172, 172);
+}
+
+.prosumer-details-main {
+    max-width: 1500px;
+    margin: auto;
+    padding: 124px 12px 64px;
+}
+
+.home-link {
+    /* background-color: rgb(33, 37, 41); */
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.15s;
+    border-bottom: 1px solid #888888;
+    margin-bottom: 32px;
+}
+
+.home-link:hover {
+    color: rgb(200, 200, 200);
+}
+
+.separator {
+    width: 6px;
+    height: 6px;
+    background-color: rgb(196, 196, 196);
+    display: inline-block;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.back-icon {
+    width: 13px;
+    height: 13px;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    transform: rotate(-45deg);
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.device-type {
+    font-size: 24px;
+    text-transform: capitalize;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.device-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.device-icon {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.device-icon img {
+    width: 36px;
+}
+
+.location {
+    font-size: 24px;
+    margin-top: 16px;
+}
+
+.location img {
+    width: 18px;
+    margin-right: 8px;
+    position: relative;
+    top: -4px;
+}
+
+.device-modal-status {
+    transition: 0.15s;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.toggle {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 28px;
+    text-align: center;
+    margin: 0 !important;
+}
+  
+.toggle input {
+    display: none;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #888888;
+    transition: .4s;
+    border-radius: 34px;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    top: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+  
+input:checked + .slider {
+    background-color: #7a61eb;
+}
+  
+input:checked + .slider:before {
+    transform: translateX(50px);
+}
+
+.delete-device {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 20px;
+    padding: 8px 8px;
+    border-radius: inherit;
+    /* border: 1px solid #fd3e3e; */
+    color: #fd3e3e;
+    cursor: pointer;
+}
+
+.delete-device:hover {
+    /* box-shadow: 2px 2px #fd3e3e; */
+    border: 1px solid #fd3e3e;
+}
+
+.delete-device img {
+    width: 30px;
+}
+
+.device-header-first-row {
+    color: aliceblue;
+    font-size: 32px;
+    width: 90%;
+}
+
+.device-name {
+    width: 40%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 6px 20px 16px;
+    background-color: #23283848;
+    border-radius: 6px;
+    position: relative;
+    height: fit-content;
+}
+
+.device-type-producer {
+    color: var(--producer-color);
+}
+
+.device-type-consumer {
+    color: var(--consumer-color);
+}
+
+.energy-header {
+    width: 50%;
+    padding: 20px;
+    /* padding: 10px 20px;
+    border: 1px solid rgb(52, 52, 52);
+    border-radius: 8px; */
+}
+
+.energy-info-header {
+    font-size: 24px;
+    margin-bottom: 12px;
+    /* text-transform: capitalize; */
+    display: flex;
+    align-items: center;
+}
+
+.energy-info-header-text {
+    color: aliceblue;
+}
+
+.energy-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background-image: linear-gradient(#232435, rgba(110, 110, 110, 0.077)); */
+    border-radius: 6px;
+}
+
+.energy-data .energy-single-data {
+    padding-left: 10px;
+    width: 40%;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 40%);
+    padding-right: 10px;
+    border-radius: inherit;
+    position: relative;
+    margin-bottom: 12px;
+    background-image: linear-gradient(#232435, rgba(110, 110, 110, 0.077));
+    color: #99daff !important;
+}
+
+.energy {
+    text-align: right;
+    /* white-space: nowrap; */
+    /* overflow: auto; */
+    /* display: inline-block; */
+}
+
+.energy-data .device-type-producer {
+    color: var(--producer-color);
+}
+
+.energy-data .device-type-consumer {
+    color: var(--consumer-color);
+}
+
+.energy-data .energy-number {
+    font-size: 32px;
+    /* color: aliceblue; */
+    display: inline-block;
+}
+
+.energy-data .energy-unit {
+    margin-left: 4px;
+    font-size: 20px;
+    color: rgb(207, 207, 207);;
+}
+
+.icon {
+    width: 24px;
+    margin-right: 12px;
+}
+
+.energy-data .energy-text {
+    font-size: 20px;
+    /* text-transform: capitalize; */
+    color: #99daff;
+    /* font-weight: 600; */
+}
+
+.device-current-energy {
+    border-radius: inherit;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 40%);
+    padding-right: 10px;
+    color: rgb(252, 180, 144);
+}
+
+@media screen and (max-width: 768px) {
+    .prosumer-details-main {
+        padding-top: 98px;
+    }
+
+    .device-header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .separator {
+        width: 4px;
+        height: 4px;
+        margin: 3px;
+    }
+
+    .energy-header {
+        padding: 0;
+    }
+
+    .home-link {
+        font-size: 18px;
+        border-bottom: none;
+        margin-bottom: 0px;
+    }
+
+    .energy-info {
+        padding-top: 16px;
+    }
+
+    .energy-header {
+        width: 100%;
+    }
+
+    .energy-data {
+        justify-content: space-around;
+    }
+
+    .energy-data .energy-single-data {
+        padding: 0px 4px;
+        /* width: 100%; */
+        /* height: 70%; */
+        border: none;
+        background: none;
+    }
+
+    .energy {
+        /* display: inline-block; */
+        /* position: absolute; */
+        right: 0;
+    }
+    
+    .energy-data .energy-number {
+        font-size: 14px;
+    }
+    
+    .energy-data .energy-unit {
+        font-size: 14px;
+    }
+    
+    .energy-data .energy-text {
+        font-size: 14px;
+        display: inline;
+    }
+
+    .delete-device {
+        font-size: 14px;
+        top: 4px;
+        right: 4px;
+        padding: 4px 4px;
+    }
+
+    .device-icon {
+        margin-right: 4px;
+    }
+    
+    .device-icon img {
+        width: 24px;
+    }
+
+    .device-modal-status {
+        margin-right: 12px;
+        margin-bottom: 4px;
+    }
+
+    .delete-device img {
+        width: 24px;
+    }
+
+    .toggle {
+        width: 38px;
+        height: 15px;
+    }
+
+    .slider:before {
+        height: 19px;
+        width: 19px;
+        left: -3px;
+        top: -2px;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(24px);
+    }
+
+    .back-icon {
+        width: 11px;
+        height: 11px;
+        margin-left: 4px;
+        margin-right: 2px;
+    }
+
+    .device-name {
+        margin-top: 12px;
+        width: 100%;
+        padding-bottom: 8px;
+    }
+
+    .device-header-first-row {
+        font-size: 20px;
+    }
+
+    .location {
+        font-size: 16px;
+        margin-top: 8px;
+    }
+
+    .device-type {
+        font-size: 16px;
+        margin-top: 4px;
+    }
+
+    .location img {
+        width: 13px;
+        margin-right: 4px;
+        top: -2px;
+    }
+
+    .energy-info-header {
+        margin-top: 24px;
+        font-size: 18px;
+    }
+
+    .icon {
+        width: 20px;
+        margin-right: 8px;
+    }
+}

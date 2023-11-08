@@ -1,0 +1,19 @@
+<div *ngIf="user" class="box3">
+    <div >
+        <b>First Name:</b>
+        <input style="background-color: rgb(236, 228, 218);" [(ngModel)]="user.firstName" placeholder="Fisrt Name"/>
+    </div>
+    <div style="margin-top: 10px;">
+        <b>Last Name:</b>
+        <input style="background-color: rgb(236, 228, 218);" [(ngModel)]="user.lastName" placeholder="Last Name"/>
+    </div>
+    <div style="margin-top: 10px;">
+        <b>Place:</b>
+        <input style="background-color: rgb(236, 228, 218);" [(ngModel)]="user.place" placeholder="Place"/>
+    </div>
+    <div  >
+        <button (click)="updateUser(user)" *ngIf="user.id" style="margin-top: 10px; background-color: rgb(156, 156, 196);">Save</button>
+    <button (click)="deleteUser(user)" *ngIf="user.id" style="margin-top: 10px; background-color: rgb(156, 156, 196); margin-left: 20px;">Delete</button>
+    <button (click)="createUser(user)" *ngIf="!user.id" style="margin-top: 10px;">Create</button>
+    </div>
+</div>

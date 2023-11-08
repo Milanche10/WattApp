@@ -1,0 +1,24 @@
+
+<div id="wrap">
+  <button (click)="newUser()" style="margin-top: 20px;">Create new user</button>
+
+  <h2>All users</h2>
+  <table>
+    <thead>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Password</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.password }}</td>
+        <td><button (click)="editUser(user)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-edit-user [user]="userToEdit" (usersUpdated)="updateUserList($event)"></app-edit-user>
+</div>

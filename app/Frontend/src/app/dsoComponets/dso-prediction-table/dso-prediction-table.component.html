@@ -1,0 +1,19 @@
+<div class="table-wrapper">
+  <table class="fl-table">
+      <thead>
+      <tr>
+          <th>Date</th>
+          <th>Usage</th>
+          <th>Produced</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let predictions of  this.arrayOFSums | paginate: { itemsPerPage: pageSizePrediction,currentPage: currentPagePrediction,totalItems: totalPredictions }">
+          <td>{{ predictions.date  | date: 'MMMM y' }}</td>
+          <td>{{ predictions.sumOFUsage }}</td>
+          <td>{{ predictions.sumOFProduced }}</td>
+      <tbody>
+  </table>
+  <!--<ngx-pagination [collectionSize]="totalRecords" [(page)]="currentPage" [pageSize]="pageSize" (pageChange)="pageChanged($event)"></ngx-pagination>-->
+  <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChangePrediction($event)"></pagination-controls>
+</div>

@@ -1,0 +1,57 @@
+<div class="device-info">
+    <div class="device-info-header">
+        <img class="icon" src="../../../../assets/icons/device_info.png" alt="">
+        <div>Device information</div>
+    </div>
+
+    <div class="info-and-privileges">
+        <div class="device-information">
+            <div class="device-status device-data">
+                <span class="device-field">Device</span>
+                <span class="device-data-text">{{device.name}}</span>
+            </div>
+            <hr>
+            <div class="device-status device-data">
+                <span class="device-field">Type</span>
+                <span class="device-data-text">{{getDeviceType()}}</span>
+            </div>
+            <hr>
+            <div class="device-status device-data">
+                <span class="device-field">Status</span>
+                <span class="device-data-text">{{getDeviceStatus()}}</span>
+            </div>
+            <hr>
+            <div class="device-location device-data">
+                <span class="device-field">Location</span>
+                <span class="device-data-text">{{this.device.address}}, {{this.device.city}}, {{this.device.county}}</span>
+            </div>
+            <hr>
+            <div class="device-description device-data">
+                <span class="device-field">Description</span>
+                <span class="device-data-text">{{this.device.description}}</span>
+            </div>
+            <hr>
+        </div>
+    
+        <div class="dso-privileges">
+            <div class="dso-privileges-header">
+                <img class="icon" src="../../../../assets/icons/dso_privileges.png" alt="">
+                <div>DSO privileges</div>
+            </div>
+            <label class="dso-privilege device-data">
+                <span>Allow DSO to see this device</span>
+                <input type="checkbox" (click)="showDsoVisibilityPopup($event)" [checked]="this.device.isVisible" >
+                <span class="checkmark"></span>
+            </label>
+            <!-- <hr class="mobile-visible"> -->
+            <label class="dso-privilege device-data">
+                <span>Allow DSO to manage this device</span>
+                <input type="checkbox" (click)="showDsoManagingPopup($event)" [checked]="this.device.isAccesable">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+
+    <app-popup *ngIf="dsoPrivilegesPopupVisible" [popupDetails]="popupDetails" (closePopup)="dsoPrivilegesPopupVisible = false" (dsoVisibilityChanged)="changeDsoVisibilityLocaly($event)"></app-popup>
+</div>

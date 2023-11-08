@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row welcome-msg-div" style="min-height: 50px;">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <h1 class="welcome-msg">
+              Hi, <span>{{this.global.user?.firstName}} {{this.global.user?.lastName}}</span> <br>You are logging
+              for first time, so you need to enter following
+              Informations
+          </h1>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <form [formGroup]="newUser" (ngSubmit)="submit()">
+              <div class="form-group">
+                  <label>Password</label>
+                <input type="password" name="" class="form-control" required="" placeholder="Enter your password" formControlName="password" (keyup)="setPassword($event)">
+
+              </div><br>
+              <div class="form-group">
+                  <label>Confirm Password</label>
+                <input type="password" name="" class="form-control" required="" placeholder="Confirm your password" formControlName="confirmPassword" (keyup)="setConPassowrd($event)">
+
+              </div><br>
+              <div class="form-group" *ngIf="confirmedPass">
+                  <label>JMBG</label>
+                <input type="text" name="" class="form-control" placeholder="Enter your jmbg" required="" formControlName="jmbg">
+                <div *ngIf="newUser.get('jmbg')?.invalid   && newUser.get('jmbg')?.dirty">
+                  <div *ngIf="newUser.get('jmbg')?.hasError('invalidJmbg')">Invalid JMBG.</div>
+                </div>
+                <br>
+              </div>
+              <div class="form-group" *ngIf="confirmedPass">
+                  <label>ID number</label>
+                <input type="text" name="" class="form-control" placeholder="Enter you id number" required="" formControlName="brlk">
+                <div *ngIf="newUser.get('brlk')?.invalid && newUser.get('brlk')?.dirty">
+                  <div *ngIf="newUser.get('brlk')?.hasError('brlk')">Invalid ID Number.</div>
+                </div>
+                <br>
+              </div>
+              <button type="button" class="btn btn-primary buttons" (click)="confirmPassword()" *ngIf="!confirmedPass">
+                  Confirm
+              </button>
+              <button type="submit" class="btn btn-primary buttons" *ngIf="confirmedPass">
+                  Submit your request
+              </button>
+
+            </form>
+
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+</div>

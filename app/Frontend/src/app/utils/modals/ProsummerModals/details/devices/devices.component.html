@@ -1,0 +1,58 @@
+
+  <!--  <p>Device ID: {{device.id}}</p>
+    <p>Usage: {{device.usage}}</p>
+    <p>Device Location: {{device.address}}, {{device.city}}, {{device.county}}</p> -->
+
+<div class="container col-md-8 mt-1">
+    <div class="card md-3 content">
+        <div class="Access-info">
+            <h5>Number of visible devices: {{visibleDevicesNumber}}</h5>
+            <h5>Number of devices with allowed access: {{accesableDevicesNumber}}</h5>
+        </div>
+        <div *ngFor="let device of this.data" class="device">
+            <div class="deviceName">
+                <h1 class="m-3 pt-3">{{device.name}}</h1>
+                <hr>
+            <!--    <button class="btn btn-dark" (click)="onClick(device)" >Details</button> -->
+            </div>
+            <div class="device-modal-status" *ngIf=" deviceAccess === device.isAccesable">
+                <label class="toggle">
+                    <input type="checkbox"  (change)="onDeviceStatusChange($event, device)">
+                    <span class="slider"></span>
+                </label>
+                <div class="device-modal-status-text"><span class="device-modal-status-text-off">Off</span> · <span class="device-modal-status-text-on">On</span></div>
+            </div>
+            <div class="Access" *ngIf=" deviceAccess !== device.isAccesable">
+                <p>Access Denied</p>
+            </div>
+            <div class="deviceInfo">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Usage: </h5>
+                    </div>
+                    <div class="col-md-9 text-secondary">
+                        <p>{{device.usage}}<p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Device Location: </h5>
+                    </div>
+                    <div class="col-md-9 text-secondary">
+                        <p>{{device.address}}, {{device.city}}, {{device.county}}<p>
+                    </div>
+        <!--        <div class="detailsContainer" *ngIf="selectedDevice === device">  -->
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Type: </h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <p>{{device.type}}<p>
+                            </div>
+                        </div>
+                <!--    </div> -->
+             </div> 
+        </div>
+        <hr class="deviceHr">
+    </div>
+

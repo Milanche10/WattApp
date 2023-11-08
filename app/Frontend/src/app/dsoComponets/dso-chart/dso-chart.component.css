@@ -1,0 +1,26 @@
+.chart-wrapper {
+  width: 660px;
+  margin: 0 auto;
+  text-align: center;
+  background-image: linear-gradient(#232435, rgba(110, 110, 110, 0.077));
+  height: 400px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+#chart {
+  width: 630px;
+  height: 400px;
+  margin: 0 auto;
+ 
+}
+
+.chart-title {
+  padding-top: 20px;
+  text-align: center;
+  display: flex;
+  padding-left: 25px;
+}
+h3{
+  color: #99daff;
+  font-size: 17px;
+}

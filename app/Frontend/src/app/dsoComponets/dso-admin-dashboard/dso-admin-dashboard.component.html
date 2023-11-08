@@ -1,0 +1,31 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<div class="dso" id="dsoHeader">
+  <div><h3>Energy consumption and production info</h3></div>
+  <div class="container">
+    <div class="square">  <app-dso-device-usage-chart></app-dso-device-usage-chart></div>
+    <div class="square"> <app-dso-device-produced-chart></app-dso-device-produced-chart></div>
+    <div class="square"> <app-dso-prosummer-produced-chart></app-dso-prosummer-produced-chart></div>
+    <div class="square"> <app-dso-prosummer-usage-chart></app-dso-prosummer-usage-chart></div>
+
+  </div>
+  <div  class="prediction">
+     <div class="tableprediction">
+      <h2 class="table-title">DSO Prediction Seven Days Table</h2>
+      <app-dso-prediction-seven-days-table></app-dso-prediction-seven-days-table>
+      <h2 class="table-title">DSO Record Seven Days Table</h2>
+      <app-dso-record-seven-days-table></app-dso-record-seven-days-table>
+  </div>
+    <div class="chart-container"><app-dso-produced-chart></app-dso-produced-chart></div>
+  </div>
+<div class="history">
+ <div class="chart-container">
+  <app-history-chart ></app-history-chart>
+</div>
+<div class="table-container">
+   <app-dso-history-table ></app-dso-history-table>
+</div>
+
+
+</div>
+
+</div>

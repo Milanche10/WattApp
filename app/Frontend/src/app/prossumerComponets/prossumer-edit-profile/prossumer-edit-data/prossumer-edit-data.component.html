@@ -1,0 +1,14 @@
+
+<div class="row prossumer-data">
+    <app-prossumer-edit-single-data [label]="'Ime i prezime'" [data]="getFullName()" (dataEmmiter)="getData($event)"></app-prossumer-edit-single-data>
+    <app-prossumer-edit-single-data [label]="'Email'" [data]="getEmail()" (dataEmmiter)="getData($event)"></app-prossumer-edit-single-data>
+    <app-prossumer-edit-single-data [label]="'Adresa'" [data]="getAddress()" (dataEmmiter)="getData($event)"></app-prossumer-edit-single-data>
+    <app-prossumer-edit-single-data [label]="'JMBG'" [data]="getJMBG()" (dataEmmiter)="getData($event)"></app-prossumer-edit-single-data>
+    <app-prossumer-edit-single-data [label]="'Broj licne karte'" [data]="getIdentityCardNumber()" (dataEmmiter)="getData($event)"></app-prossumer-edit-single-data>
+
+    <div class="row">
+        <div class="col button-edit-data-div">
+            <button class="button-edit-data-save" (click)="edit()">Sačuvaj izmene</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+/*
+.container {
+    background: linear-gradient(200deg, #4D5862, #687F94);
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+}*/
+
+
+.container_card {
+    margin-left: 30%;
+    position: relative;
+    width: 70%;
+    height: 100hv;
+    margin-top: 100px;
+
+}
+
+.card {
+    margin-top: 1%;
+    position: absolute;
+    background-color:#232435;
+    width: 50%;
+    border-radius: 2rem;
+    box-shadow: 0 2rem 3rem #393a48;
+}
+
+.btn {
+    width: 33%;
+    padding-bottom: 30%;
+    width: 33%;
+    padding-bottom: 30%;
+    border-radius: 50%;
+    color: #545454;
+}
+
+
+.header {
+    font-size: 1.5em;
+    font-weight: bold;
+    color:aliceblue;
+}
+
+.idd {
+    font-size: 1em;
+    font-weight: 600
+}
+
+.file-input {
+  display: none;
+}
+
+.btn1 {
+    height: 100%;
+    width: 100%;
+    padding: 0.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border: none;
+    background: linear-gradient(145deg, #4D5862, #687F94);
+    border-radius: 0.3rem;
+    color: #232432;
+    font-size: 1em;
+    font-weight:500;
+
+}
+
+
+
+.btn1:hover {
+    background: #232432;
+    color: white;
+}
+
+.text span {
+    font-size: 0.9em;
+    color: #545454;
+    font-weight: 500
+}
+
+.line{
+	color:#545454;
+}
+form {
+    overflow-y:scroll;
+    overflow-x:hidden;
+    scrollbar-width: normal;
+    height: 70%;
+    width: 100%;
+    font-weight: 100;
+}
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+a {
+    cursor: pointer;
+    width:auto;
+}
+.navbar-nav .active>.nav-link {
+    background-color: #7790D9;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.navbar {
+    background-color: var(--navbar-background) !important;
+    border-bottom: 1px solid #333333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}

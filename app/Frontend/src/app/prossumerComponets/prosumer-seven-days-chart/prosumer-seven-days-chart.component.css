@@ -1,0 +1,40 @@
+.chart-wrapper {
+    width: 660px;
+    margin: 0 auto;
+    text-align: center;
+    background-image: linear-gradient(#232435, rgba(110, 110, 110, 0.077));
+    height: 400px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+  }
+  
+  #chart {
+    width: 630px;
+    height: 400px;
+    margin: 0 auto;
+   
+  }
+  
+  .chart-title {
+    padding-top: 20px;
+    text-align: center;
+    display: flex;
+    padding-left: 10px;
+  }
+  h3{
+    color: #99daff;
+    font-size: 15px;
+    margin-left: 25px;
+  }
+
+  @media (max-width: 767px) {
+    .chart-wrapper{
+      display: block;
+      width: 90%;
+}
+    #chart {
+      display: block;
+      width: 100%;
+    }
+}
+

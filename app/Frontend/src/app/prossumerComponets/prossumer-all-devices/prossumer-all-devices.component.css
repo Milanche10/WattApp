@@ -1,0 +1,30 @@
+
+
+.header-all-devices {
+    color: rgb(255, 130, 76);
+}
+
+.all-devices-prossumer {
+    margin-top: 10px;
+    border-top: 2px solid #bdbdbd;
+    padding: 14px;
+}
+
+.add-device {
+    white-space: nowrap; 
+    border: none; 
+    background: none;
+    color: #3ea6ff;
+}
+
+.my-col {
+    white-space: nowrap;
+}
+
+.device-details {
+    border: none;
+}
+
+.device {
+
+}

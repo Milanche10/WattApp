@@ -1,0 +1,25 @@
+<div class="chart-wrapper">
+  <div id="chart">
+    <h3 class="chart-title">Analytics - History of usage and production</h3>
+    <div class="container">
+      <p>Select Year:</p>
+      <select id="year-select" [(ngModel)]="selectedYear" (change)="createHistoryChartYearly()">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+
+      <p class="month">Display the specified month for the selected year:</p>
+      <select id="month-select" [(ngModel)]="selectedMonth" (change)="createHistoryChartMonth()">
+        <option value="0" disabled>Select Month</option>
+        <option *ngFor="let month of months" [value]="month">{{ getNameOfMonth(month) }}</option>
+      </select>
+
+      <p class="day">Display the specified day for the selected month:</p>
+      <select id="day-select" [(ngModel)]="selectedDay" (change)="createHistoryChartDay()"
+        [disabled]="selectedMonth === '0'" [ngClass]="{ 'disabled': selectedMonth === '0' }">
+        <option value="0" disabled>Select Day</option>
+        <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+      </select>
+    </div>
+    <canvas id="myChart"></canvas>
+  </div>
+</div>

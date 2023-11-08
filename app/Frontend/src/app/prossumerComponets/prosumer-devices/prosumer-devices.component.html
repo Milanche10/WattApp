@@ -1,0 +1,144 @@
+
+
+
+
+<div class="prosumer-devices-main" style="margin-bottom: 60px;">
+
+    <div class="devices-location">
+        <div class="devices-location-header">
+            Location
+        </div> 
+
+        <div class="current-location" *ngIf="this.selectedLocation">
+            <!-- {{this.selectedLocation.address}} -->
+            <div (click)="toggleLocationOptions()" class="selected-option">
+                <span class="selected-option-text">
+                    <img src="../../../assets/icons/location.png" class="icon" width="24px">
+                    {{ getSelectedLocationOptionText() }}
+                </span>
+                <span class="arrow-icon" [ngClass]="{'arrow-icon-opened': showLocationOptions}"></span>
+            </div>
+            <div class="options" *ngIf="showLocationOptions">
+                <div *ngIf="apartmentOptions.length > 0" class="option-group">
+                    <div class="option-label">Apartments</div>
+                    <div class="single-option" [ngClass]="{'selected-option-from-list': apartment.selected}" *ngFor="let apartment of apartmentOptions" (click)="selectLocationOption(apartment)">
+                        <span class="single-option-text">
+                            {{ apartment.address }}
+                            <!-- <span class="single-option-number-devices">3</span> -->
+                        </span>
+                        <span *ngIf="apartment.selected" class="check-icon">&#10003;</span>
+                    </div>
+                </div>
+                <div *ngIf="houseOptions.length > 0" class="option-group">
+                    <div class="option-label">Houses</div>
+                    <div  class="single-option" [ngClass]="{'selected-option-from-list': house.selected}" *ngFor="let house of houseOptions" (click)="selectLocationOption(house)">
+                        <span class="single-option-text">
+                            {{ house.address }}
+                             <!-- <span class="single-option-number-devices">2</span> -->
+                        </span>
+                        <span *ngIf="house.selected" class="check-icon">&#10003;</span>
+                    </div>
+                </div>
+                <div *ngIf="cottageOptions.length > 0" class="option-group">
+                    <div class="option-label">Cottages</div>
+                    <div class="single-option" *ngFor="let cottage of cottageOptions" [ngClass]="{'selected-option-from-list': cottage.selected}" (click)="selectLocationOption(cottage)">
+                        <span class="single-option-text">
+                            {{ cottage.address }}
+                             <!-- <span class="single-option-number-devices">5</span> -->
+                        </span>
+                        <span *ngIf="cottage.selected" class="check-icon">&#10003;</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <hr> -->
+        </div>
+    </div>
+
+    <div class="total-devices-header">
+        <span class="total-devices-header-text">
+            Devices 
+            <span class="total-devices-number">{{this.filteredDevices.length}}</span>
+        </span>
+        <button class="col btn btn-primary add-device" (click)="addDeviceModalVisible = true"><span>+</span> Add device</button>
+        <!-- <hr class="mobile-invisible"> -->
+    </div>
+
+    <app-add-device *ngIf="addDeviceModalVisible" [selectedLocation]="selectedLocation" (closeModal)="addDeviceModalVisible = false" (deviceAdded)="fetchDevices()"></app-add-device>
+
+    <app-popup *ngIf="popupVisible" (deviceDeleted)="fetchDevices()" [popupDetails]="popupDetails" (closePopup)="popupVisible = false" (deviceStatusChanged)="changeDeviceStatusLocaly($event)"></app-popup>
+    
+    <div class="prosumer-devices"  *ngIf="this.filteredDevices.length">
+
+        <div class="filters-and-devices">
+            <div *ngIf="filteredDevices.length" class="device-filters">
+                <!-- <div class="filters-header">
+                    <img src="../../../assets/icons/filter.png" width="20px" class="filters-header-icon">
+                    <div class="filters-header-text">Filters</div>
+                </div> -->
+                <div class="filter-heading">
+                    <img src="../../../assets/icons/filter.png" width="20px" class="filters-heading-icon">
+                    <span>Type</span>
+                </div>
+                <div class="filter-type">
+                    <!-- <div class="filter-header">Type</div> -->
+                    <div class="navbar-container">
+                        <div class="navbar-link number-devices" (click)="changeDeviceType(DeviceType.ALL)" [ngClass]="{'navbar-link-selected': selectedDeviceType == DeviceType.ALL}">
+                            All · <span>{{this.filteredDevices.length}}</span>
+                        </div>
+                        <div class="navbar-link number-producers" (click)="changeDeviceType(DeviceType.PRODUCER)" [ngClass]="{'navbar-link-selected': selectedDeviceType == DeviceType.PRODUCER}">
+                            Producers · <span>{{getNumberOfProducers()}}</span>
+                        </div>
+                        <div class="navbar-link number-consumers" (click)="changeDeviceType(DeviceType.CONSUMER)" [ngClass]="{'navbar-link-selected': selectedDeviceType == DeviceType.CONSUMER}">
+                            Consumers · <span>{{getNumberOfConsumers()}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-heading">
+                    <img src="../../../assets/icons/filter.png" width="20px" class="filters-heading-icon">
+                    <span>Status</span>
+                </div>
+                <div class="filter-status">
+                    <div class="navbar-container">
+                        <div class="navbar-link" (click)="changeDeviceStatus(DeviceStatus.ALL)" [ngClass]="{'navbar-link-selected': selectedDeviceStatus == DeviceStatus.ALL}">
+                            All
+                        </div>
+                        <div class="navbar-link" (click)="changeDeviceStatus(DeviceStatus.OFF)" [ngClass]="{'navbar-link-selected': selectedDeviceStatus == DeviceStatus.OFF}">
+                            Off
+                        </div>
+                        <div class="navbar-link" (click)="changeDeviceStatus(DeviceStatus.ON)" [ngClass]="{'navbar-link-selected': selectedDeviceStatus == DeviceStatus.ON}">
+                            On
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="devices">
+                <app-prosumer-single-device *ngFor="let device of filteredDevices | deviceFilter: selectedDeviceType: selectedDeviceStatus" [device]="device" (deviceDeletePopup)="showDeletePopup(device)" (deviceChangeStatusPopup)="showChangeStatusPopup($event)">
+                    
+                </app-prosumer-single-device>
+            </div>
+            
+            <!-- <div class="col-md-2"></div> -->
+        </div>
+        <!-- <div class="device-details">
+            <h2>Ves masina</h2>
+            <h4>Potrosac</h4>
+
+            <hr>
+
+            <h2>Detalji uredjaja</h2>
+        </div> -->
+    </div>
+
+    <div class="no-devices" *ngIf="filteredDevices.length == 0">
+        <div class="no-devices-heading">
+            <div>You don't have any devices on this location.</div>
+            <div>Click on icon below to add your first device.</div>
+        </div>
+        <div class="no-devices-img" (click)="addDeviceModalVisible = true;">
+            <img src="../../../assets/icons/plugin.png" alt=""> <span>+ Add device</span>
+        </div>
+        
+    </div>
+    
+</div>

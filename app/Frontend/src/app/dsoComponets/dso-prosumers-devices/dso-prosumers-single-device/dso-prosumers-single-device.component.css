@@ -1,0 +1,129 @@
+
+.deviceName {
+  display:block;
+  float: left;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.deviceInfo {
+  display:block;
+  margin-top: -5%;
+  width: 90%;
+}
+
+.Access {
+  margin-left: 84%;
+  margin-top: 10%;
+  color: #BFC5CD;
+  font-style: italic;
+}
+
+.device-modal-status {
+  margin-left: 500px;
+  margin-top: 15%;
+  width: fit-content;
+  text-align: center;
+}
+
+.device-modal-status-text {
+  font-size: large;
+}
+
+.device-modal-status-text-off {
+  color: #6e79a1f4;
+}
+
+.device-modal-status-text-on {
+  color: #df6d24
+}
+
+.toggle {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 20px;
+  margin-bottom: 6px;
+}
+
+.toggle input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #6e79a1f4;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #df6d24;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+h1 {
+  font-size: 1.2em;
+}
+
+p {
+   color: whitesmoke;
+}
+
+h5{
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+hr {
+  margin-top: -5%;
+  margin-left: 2%;
+  width: 100%;
+}
+ 
+ .deviceHr {
+   width: 90%;
+   margin-top: 5%;
+   position: absolute;
+   border-style: dotted;
+ }
+
+ .btn {
+   height: 100%;
+   width: 100%;
+   padding: 0.5rem;
+   padding-left: 2.5rem;
+   padding-right: 2.5rem;
+   border: none;
+   background: #6e79a1f4;
+   border-radius: 0.3rem;
+   color: #373942;
+   font-size: 1em;
+   font-weight:500;
+}
+
+.btn:hover {
+   background: #373942;
+   color:rgb(255, 255, 255);
+}

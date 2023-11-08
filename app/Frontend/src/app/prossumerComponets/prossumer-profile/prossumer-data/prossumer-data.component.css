@@ -1,0 +1,38 @@
+
+.prossumer-data {
+    background-color: #23283848;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: large;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.button-edit-data-div {
+    padding: 20px;
+}
+
+.button-edit-data {
+    border: none;
+    background-color: #FE986D;
+    color:rgb(20, 20, 20);
+    padding: 6px;
+    transition: 0.15s;
+    border-radius: 5px;
+}
+
+.button-edit-data:hover {
+    background-color: #f86324;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+    .prossumer-data {
+        padding: 0 10px 5px 10px;
+        border-radius: 0;
+    }
+
+    .button-edit-data {
+        font-size: medium;
+    }
+}

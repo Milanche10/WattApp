@@ -1,0 +1,125 @@
+*{
+  height: 80%;
+}
+.map-container {
+  position: relative;
+  height: 400px;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+}
+
+#map {
+  position: relative;
+  height: 100%;
+  top:2%;
+  left:2%;
+}
+
+.prosumers-dialog {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(14, 14, 14);
+  overflow: auto;
+  left:90%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+}
+
+.map-button{
+  position:relative;
+  left:110%;
+  bottom:90%;
+  border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: rgb(242, 212, 63);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+.map-button:hover {
+  background-color: #0062cc;
+  transform:  scale(1.1);
+  cursor: pointer;
+}
+.container-fluid {
+  height: 100%;
+  padding-top: 100px;
+}
+
+.row {
+  height: 100%;
+}
+
+#map {
+  filter: invert(90%) hue-rotate(250deg) brightness(100%) saturate(70%);
+  width:80%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .map-tiles {
+    filter: var(--map-tiles-filter, none);
+  }
+}
+
+#map {
+  /* Set the color scheme for the map elements */
+  -o-animation: #7799b6;
+  --color-land: #f0f4f71a;
+  --color-roads: #000000;
+  --color-parks: #f7eadb;
+  --color-buildings: #2d2929;
+
+  /* Apply the colors to the appropriate elements */
+  --mapbox-color-water: var(--color-water);
+  --mapbox-color-land: var(--color-land);
+  --mapbox-color-road: var(--color-roads);
+  --mapbox-color-park: var(--color-parks);
+  --mapbox-color-building: var(--color-buildings);
+}
+
+#tabela{
+
+  position:relative;
+  float:left;
+  right:25%;
+  top:0px;
+  height:40%;
+}
+
+.weather{
+  position: relative;
+  left:10%;
+  display: flex;
+  top:10%;
+}
+
+#weather2{
+  position: relative;
+  left:100%;
+  top:10%;
+}
+
+#map{
+  position: relative;
+  top:13%;
+  width:70%;
+}
+#weather2{
+  position: relative;
+  right:0%;
+  top:0%;
+  height:70%;
+}
+.weather{
+  position: relative;
+  right:10%;
+}
+
+#tabela{
+  top:10%;
+  left:0%;
+}

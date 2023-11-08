@@ -1,0 +1,231 @@
+.row{
+  background-color: #232838d7;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* Opciono: dodaje razmak između elemenata */
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: aliceblue;
+}
+
+.input-container input {
+  width: 100%;
+}
+
+.row form {
+  width:1100px;
+}
+
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+input{
+  border: 2px solid rgb(138, 166, 196);
+  background-color: rgba(230, 247, 255, 0.875);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.name, .email, .address,  .lastname label{
+  color: #d6e4fc;
+
+}
+
+label{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.estate-container {
+  color: #9ec2e2 !important;
+}
+
+.estate-radio-buttons {
+  display: flex;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+}
+
+.estate-radio-buttons input[type="radio"] {
+  display: none;
+}
+
+.estate-radio-buttons label.estate-radio {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.estate-radio-buttons label.estate-radio::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+}
+
+.estate-radio-buttons input[type="radio"]:checked + label.estate-radio::before {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #232838d7;
+  content: "\2022";
+  text-align: center;
+  line-height: 16px;
+}
+
+.estate-radio {
+  margin-right: 3%;
+}
+
+.choose_label {
+  font-size: larger;
+}
+
+.btn {
+  background-color: #2C4A91;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  position: relative;
+  border-radius: 0 !important;
+  border: none;
+  transition: all 0.3s ease 0s;
+}
+.map-container {
+  position: relative;
+  height: 500px;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+}
+
+
+#map-prosumer:hover {
+  cursor: pointer;
+}
+
+.map-button{
+  position:relative;
+  left:110%;
+  bottom:90%;
+  border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: rgb(242, 212, 63);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+.map-button:hover {
+  background-color: #0062cc;
+  transform:  scale(1.1);
+  cursor: pointer;
+}
+
+.mapbutton {
+  margin-top: 15px;
+  background-color: #66c7ff71;
+  border: 2px solid #07054c8b;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mapbutton svg {
+  margin-bottom: 5px;
+  margin-right: 3px;
+}
+
+.mapbutton:hover{
+  background-color: #66c7ff39;
+}
+
+#map-prosumer {
+  /* Set the color scheme for the map elements */
+  animation: #7799b6;
+  -o-animation: #7799b6;
+  --color-land: #f0f4f71a;
+  --color-roads: #000000;
+  --color-parks: #f7eadb;
+  --color-buildings: #2d2929;
+
+  /* Apply the colors to the appropriate elements */
+  --mapbox-color-water: var(--color-water);
+  --mapbox-color-land: var(--color-land);
+  --mapbox-color-road: var(--color-roads);
+  --mapbox-color-park: var(--color-parks);
+  --mapbox-color-building: var(--color-buildings);
+
+  width: 100%;
+  height: 600px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .map-tiles {
+    filter: var(--map-tiles-filter, none);
+  }
+}
+#map-prosumer {
+  filter: invert(90%) hue-rotate(250deg) brightness(100%) saturate(70%);
+  width: 100%;
+  box-shadow: 0 0 5px rgba(22, 5, 87, 0.3);
+}
+
+.submit svg{
+  margin-bottom: 4px;
+  margin-right: 3px;
+}
+
+.submit{
+  padding: 10px;
+  width: 230px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  color: wheat;
+  background-image: linear-gradient(to bottom, #264968d5, #2e448f);
+  border: 1px solid rgba(12, 12, 72, 0.427);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.submit:hover{
+
+  background-color: #5a98cf7a;
+
+}
+

@@ -1,0 +1,28 @@
+
+<div class="overlay">
+    <div class="center-element">
+        <div class="popup-body">
+            <span class="popup-title">Prosummer Devices</span>
+            <div class="closePart">
+                <button type="button" class="closeButton"  (click)="closePopup()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg></button>
+            </div>
+            <div class="container col-md-8 mt-1">
+                    <div class="Access-info">
+                        <h5 class="name">{{getProsumersName()}}</h5>
+                        <h5>Device Number: {{this.devices.length}}  |  Visible Devices: {{visibleDevicesNumber}}  |  Accessible Devices: {{accesableDevicesNumber}}</h5>
+                    </div>
+                    <div class="card md-3 content">
+                        <div class="device">
+                            <app-dso-prosumers-single-device *ngFor="let device of devices" [device]="device" (deviceChangeStatusPopup)="showChangeStatusPopup($event)">
+                                
+                            </app-dso-prosumers-single-device>
+                        </div>
+                    </div>
+            </div>
+        </div>
+</div>
+
+<app-popup *ngIf="popupVisible"[popupDetails]="popupDetails" (closePopup)="popupVisible = false" ></app-popup>

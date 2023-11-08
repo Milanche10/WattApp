@@ -1,0 +1,14 @@
+ <div class="main">
+    <div class="text">
+      <h1>{{title}}</h1>
+      <input type="text" placeholder="Enter New Task" #task/>
+      <button (click)="addTask(task.value)" class="add">Add</button>
+
+      <br>
+      <br>
+
+      <ul *ngFor="let item of list">
+        <li><input type="checkbox" class="check">{{item.name}} <button (click)="removeTask(item.id)" class="remove">X</button></li>
+      </ul>
+    </div>
+  </div>

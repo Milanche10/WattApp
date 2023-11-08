@@ -1,0 +1,68 @@
+<div class="body">
+<div class="logo">
+  <div class="d-flex justify-content-center align-items-center">
+    <img src="../../../assets/logoWhite.png" alt="logo" width="60%" height="35%">
+    </div>
+  </div>
+  <div class="login-box">
+   <div class="d-flex justify-content-center "> 
+    
+<div class="row justify-content-center">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <div class="user-box">
+        <input type="text" name="" required="" formControlName="firstName">
+        <label>First Name</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="" required="" formControlName="lastName">
+        <label>Last Name</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="" required="" formControlName="email">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="" required="" formControlName="password">
+        <label>Password</label>
+      </div>
+      <div class="userbox">
+        <span>Do you have admin access password</span>
+        <input type="checkbox" formControlName="admin" id="admin" (change)="adminUser($event)" />
+      </div>
+      <div class="user-box" *ngIf="!isUserAdmin">
+        <input type="text" name="" required="" formControlName="jbmg">
+        <label>JMBG</label>
+      </div>
+      <div class="user-box" *ngIf="!isUserAdmin">
+        <input type="text" name="" required="" formControlName="brlk">
+        <label>BRLK</label>
+      </div>
+      <div class="user-box" *ngIf="isUserAdmin">
+        <input type="password" name="" required="" formControlName="adminPass">
+        <label>Admin Password</label>
+      </div>
+      <button type="submit" id="submitButton">
+        <a>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+         <ng-container *ngIf="!showSpinner">Submit</ng-container> 
+          <mat-progress-spinner *ngIf="showSpinner" diameter="25" mode="indeterminate" class="custom-spinner-color spinner-overlay" ></mat-progress-spinner>
+        </a>
+        </button>
+      
+    </form>
+
+<div class="signin-link" >
+  <p>Already have an account? <a routerLink="/login">Sign in here</a></p>
+</div>
+</div>
+
+  </div>
+
+
+      </div>
+      
+</div>

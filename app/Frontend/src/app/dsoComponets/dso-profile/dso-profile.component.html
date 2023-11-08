@@ -1,0 +1,23 @@
+
+<div class="container_card col-sm-3 justify-content-center">
+	<div class="card p-4">
+		<div class="profileData d-flex flex-column justify-content-center align-items-center">
+			<button class="btn btn-secondary">
+				<img [src]="imageSrc">
+			</button>
+			<span class="header mt-3">My profile</span>
+	<div class="text mt-3">
+		<span >Full Name: {{ this.glob.user?.firstName + " " + this.glob.user?.lastName!}}</span>
+		<br><hr class="line">
+		<span>E-mail: {{this.glob.user?.email}}
+		<br> <hr class="line">
+		</span>
+		</div>
+		<input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+		<div class="file-upload d-flex mt-2">
+			<button class="btn1 btn-dark" (click)="fileUpload.click()">Change Photo</button>
+		</div>
+
+</div>
+	</div>
+</div>

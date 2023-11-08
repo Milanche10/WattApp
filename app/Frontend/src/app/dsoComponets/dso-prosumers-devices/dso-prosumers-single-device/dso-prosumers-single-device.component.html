@@ -1,0 +1,41 @@
+
+            <div class="deviceName">
+                <h1 class="m-3 pt-3">{{device.name}}</h1>
+            </div>
+            <div class="device-modal-status" *ngIf=" deviceAccess === device.isAccesable">
+                <label class="toggle">
+                    <input type="checkbox" [checked]="this.device.status" (change)="onDeviceStatusChange($event, device)" (click)="showChangeStatusPopup($event)">
+                    <span class="slider"></span>
+                </label>
+                <div class="device-modal-status-text"><span class="device-modal-status-text-off">Off</span> · <span class="device-modal-status-text-on">On</span></div>
+            </div>
+            <div class="Access" *ngIf=" deviceAccess !== device.isAccesable">
+                <p>Access <br>
+                Denied</p>
+            </div>
+            <div class="deviceInfo">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Usage: </h5>
+                    </div>
+                    <div class="col-md-9 text-secondary">
+                        <p>{{device.usage}}<p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Device Location: </h5>
+                    </div>
+                    <div class="col-md-9 text-secondary">
+                        <p>{{device.address}}, {{device.city}}<p>
+                    </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Type: </h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <p>{{getDeviceType()}}<p>
+                            </div>
+                        </div>
+             </div> 
+        <hr class="deviceHr"> 

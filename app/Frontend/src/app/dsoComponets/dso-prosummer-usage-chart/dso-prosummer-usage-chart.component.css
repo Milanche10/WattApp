@@ -1,0 +1,27 @@
+.prosummerUsageChart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#prosummerUsageChart {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.prosummerUsageChart p {
+  margin: 5px 0;
+  color: rgb(177, 228, 247);
+  font-size: 13px;
+}
+
+.prosummerUsageChart p strong {
+  color: rgb(212, 241, 252);
+  font-weight: bold;
+}

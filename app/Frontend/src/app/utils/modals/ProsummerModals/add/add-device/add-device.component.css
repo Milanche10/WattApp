@@ -1,0 +1,320 @@
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.center-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.add-device-name, .add-device-address, .add-device-description {
+    margin-bottom: 20px;
+}
+
+.add-device-name label, .add-device-address label, .add-device-description label {
+    font-size: 18px;
+}
+
+.add-device-close {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    /* border-radius: inherit; */
+    padding: 10px 15px;
+    transition: 0.15s;
+    font-size: large;
+}
+
+.add-device-header {
+    font-size: 26px;
+}
+
+.add-device-close:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.add-device-header {
+    margin-bottom: 18px;
+}
+
+.add-device-body {
+    position: relative;
+    color: rgb(227, 227, 227);
+    background-color: #0f0f0f;
+    /* #23283848 */
+    /* #171b28 */
+    /* 2a2f3b */
+    border-radius: 6px;
+    padding: 26px;
+    box-shadow: 2px 2px rgb(0 0 0 / 10%);
+    border: 1px solid rgb(44, 44, 44);
+}
+
+.add-device-select {
+    background-color: #171b28;
+    color: white;
+}
+
+.add-device-select optgroup {
+    font-weight: 300;
+    color: rgb(188, 188, 188);
+}
+
+.add-device-select option {
+    color: white;
+}
+
+.add-device-type input {
+    width: fit-content;
+    margin-right: 6px;
+}
+
+.add-device-description textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid rgb(49, 49, 49);
+    background-color: #171b28;
+    color: white;
+    border-radius: 3px;
+    padding: 4px 12px;
+}
+
+.add-device-body .label-block {
+    display: block;
+    font-weight: 300;
+    margin-bottom: 6px;
+    font-size: 18px;
+    color: #82b2f6;
+}
+
+.add-device-body {
+    user-select: none;
+}
+
+.add-device-body  div {
+    margin-top: 10px;
+}
+
+.add-device-row {
+    margin-top: 0 !important;
+}
+
+.add-device-button {
+    margin-top: 30px !important;
+    width: 100%;
+}
+
+.add-device-button button {
+    width: 100%;
+    padding: 8px 0px;
+    background-color: #0d6efd;
+    color: #E8E8E8;
+    font-weight: 500;
+    border: none;
+    /* margin: auto !important; */
+    border-radius: 6px;
+    transition: 0.15s;
+}
+
+.add-device-button button:hover {
+    background-color: #0053cf;
+    box-shadow: 2px 2px rgb(0 0 0 / 30%);
+}
+
+.address {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 16px;
+}
+
+.selected-option {
+    background-color: #16181f;
+    color: white;
+    border-radius: 3px;
+    padding: 4px 6px 4px 12px;
+    border: 1px solid rgb(49, 49, 49);
+    cursor: pointer;
+    position: relative;
+    margin-top: 0 !important;
+}
+
+.selected-option-text {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.options {
+    background-color: #16181f;
+    color: white;
+    border-radius: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0 !important;
+    z-index: 3;
+    border: 1px solid rgb(49, 49, 49);
+    overflow-y: auto;
+    max-height: 500%;
+    padding: 2% 0;
+}
+
+.single-option {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2% 5% 2% 7%;
+    border-radius: 6px;
+    margin: 0 !important;
+}
+
+.single-option:not(.selected-option-from-list):hover {
+    background-color: #0d6efd;
+    /* #0053cf */
+    /* color:rgba(0, 0, 0, 1); */
+}
+
+.single-option-text {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.selected-option-from-list {
+    background-color: #0053cf;
+    /* color:rgba(0, 0, 0, 1); */
+    font-weight: 500;
+}
+ 
+/* .check-icon {
+    margin-left: 5px;
+} */
+
+.option-label {
+    padding-left: 3%;
+    margin: 0 !important;
+    color: rgb(174, 174, 174);
+}
+
+.option-group {
+    margin: 0 !important;
+    border-bottom: 1px solid #8f8f8f;
+    padding: 1% 0%;
+}
+
+.arrow-icon {
+    position: absolute;
+    right: 0;
+    margin-right: 16px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid aliceblue;
+    border-bottom: 2px solid aliceblue;
+    rotate: 135deg;
+    top: 30%;
+    transform: translateY(-50%);
+}
+
+.arrow-icon-opened {
+    rotate: 45deg;
+    top: 42%;
+    transform: translateY(-50%);
+}
+
+.address {
+    margin-bottom: 0;
+}
+
+.address-text-heading {
+    margin-top: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.address-icon {
+    width: 20px;
+    margin-right: 12px;
+}
+
+.name {
+    position: relative;
+    width: 100%;
+}
+
+.name .options {
+    z-index: 5;
+}
+
+@media screen and (max-width: 576px) {
+    .add-device-header {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .add-device-name, .add-device-address, .add-device-description {
+        margin-bottom: 16px;
+    }
+    
+    .add-device-name label, .add-device-address label, .add-device-description label {
+        font-size: 14px;
+    }
+
+    .add-device-description textarea {
+        font-size: 14px;
+    }
+
+    .add-device-body {
+        padding: 14px 18px;
+        width: 92%;
+        margin: auto;
+    }
+
+    .add-device-close {
+        top: 0px;
+        right: 0px;
+    }
+
+    .single-option, .selected-option {
+        font-size: 14px;
+    }
+
+    .option-label {
+        font-size: 15px;
+    }
+
+    .options {
+        max-height: 300%;
+    }
+
+    .name {
+        width: 100%;
+    }
+
+    .label-block {
+        font-size: 16px !important;
+    }
+
+    .icon {
+        width: 14px;
+        margin-right: 10px;
+    }
+}

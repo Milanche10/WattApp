@@ -1,0 +1,10 @@
+<!--PROSSUMER NAV-->
+<app-prossumer-nav-bar [toPage]="toPageFunction" 
+                       [logout]="logoutFunction"
+                       *ngIf="nav.visible && this.glob.isProssumer"
+                       ></app-prossumer-nav-bar>
+<!--DSO NAV-->
+<app-dso-nav-bar [toPage]="toPageFunction" 
+                 [logout]="logoutFunction" 
+                 *ngIf="nav.visible && this.glob.isAdmin"
+                 ></app-dso-nav-bar>

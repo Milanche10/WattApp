@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="form-group">
+        <input type="hidden" class="form-control" placeholder="UserId" [(ngModel)]="str3" formControlName="userid">
+    </div>
+    <div class="form-group input-group-lg">
+        <input class="form-control" placeholder="naziv" formControlName="Naziv">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-danger btn-block btn-lg">Dodaj</button>
+        <button class="btn" (click)="cancel()">Cancel</button>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="logo">
+        <img src="../../../assets/logo1.png" alt="logo" width="80px" height="60px">
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" (click)="toPage('home')">Energy info</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" (click)="toPage('dashboard')">Dashboard</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" (click)="toPage('map')">Prosumers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="toPage('add_prosumer')">Add prosumer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="toPage('add_dso')" *ngIf="glob.user?.email == 'admin@gmail.com'">Add dispatcher</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" style="color:#7790D9"><img src="../../../assets/icons/profile.png" style="margin-right: 2px; height: 21px; margin-bottom: 5px;"> {{ this.glob.user?.firstName + " " + this.glob.user?.lastName!}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="logout()">
+                  <img src="../../../assets/icons/logout.jpg" style="margin-right: 5px; width: 24px;">
+                  Logout</a>
+              </li>
+            </ul>
+      </div>
+      </div>
+    </div>
+  </nav>

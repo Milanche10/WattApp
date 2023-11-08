@@ -1,0 +1,47 @@
+<div *ngIf="(accountService.curentUser$ | async) === null" class="container mt-5">
+    <div *ngIf="!registerMode" style="text-align: center;">
+        <h1>Napravite vasu ToDo listu</h1>
+        <p class="lead">Sve sto morate da uradite jeste da se prijavite na sajt da bi napravili vasu ToDo listu!</p>
+        <div class="text-center">
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button> 
+            <button class="btn btn-primary btn-lg mr-2">Vise informacije</button>
+        </div>
+    </div>
+
+    <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div (load)=" reloadCurrentPage()" class="container mt-5" *ngIf="accountService.curentUser$ | async">
+    <h1>Vasa ToDO Lista</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Naziv</th>
+                
+                <th scope="col">Opcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of items">
+                <td>{{i.naziv}}</td>
+                <td><button class="btn btn-primary" id="{{i.id}}" (click)="deletee(i.id)">obrisi</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button *ngIf="!AddItemMode" (click)="AddItemToggle()" class="btn btn-primary">Dodaj na listu</button>
+
+    <div *ngIf="AddItemMode" class="continer mt-20">
+        <div class="row">
+            <div class="col-sm-4">
+                <app-add-item (cancelItem)="cancelItemMode($event)"></app-add-item>
+            </div>
+        </div>
+        
+    </div>
+</div>

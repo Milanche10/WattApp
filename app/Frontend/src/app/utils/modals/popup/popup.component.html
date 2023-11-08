@@ -1,0 +1,20 @@
+<div class="overlay">
+    <div class="container center-element">
+        <div class="row">
+            <div class="col-xl-3 col-md-2"></div>
+            <div class="col-xl-6 col-md-8 popup-body">
+                <div class="popup-header">{{this.popupDetails.header}}</div>
+                <!-- <hr> -->
+                <div class="popup-text">{{this.popupDetails.text}}</div>
+                <!-- <hr> -->
+                <div class="popup-confirm-text">{{this.popupDetails.confirmText}}</div>
+                <div class="popup-confirm-cancel-box">
+                    <span class="popup-cancel" (click)="closePopup.emit()">{{this.popupDetails.cancel}}</span>
+                    <span class="popup-confirm" (click)="confirm()">{{this.popupDetails.confirm}}</span>
+                </div>
+                
+            </div>
+            <div class="col-xl-3 col-md-2"></div>
+        </div>
+    </div>
+</div>

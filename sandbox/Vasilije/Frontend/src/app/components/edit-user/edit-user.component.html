@@ -1,0 +1,18 @@
+<div *ngIf="user">
+    <h3 *ngIf="user.id">{{ user.firstName + " " + user.lastName}}</h3>
+    <div>
+        First name:
+        <input [(ngModel)]="user.firstName" placeholder="First Name">
+    </div>
+    <div>
+        Last name:
+        <input [(ngModel)]="user.lastName" placeholder="Last Name">
+    </div>
+    <div>
+        Password:
+        <input [(ngModel)]="user.password" placeholder="Password" type="password">
+    </div>
+    <button (click)="updateUser(user)" *ngIf="user.id">Update</button> &nbsp;
+    <button (click)="deleteUser(user)" *ngIf="user.id">Delete</button>
+    <button (click)="createUser(user)" *ngIf="!user.id">Create</button>
+</div>
